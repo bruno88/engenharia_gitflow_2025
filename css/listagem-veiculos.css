@@ -1,0 +1,87 @@
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+}
+
+.listagem-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff;
+}
+
+.listagem-header h2 {
+    font-size: 2.2rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.vehicle-list-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 25px;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.mensagem-vazia {
+    padding: 40px;
+    font-size: 1.1rem;
+    color: #666;
+    text-align: center;
+    width: 100%; 
+    background-color: #fff;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    margin-top: 20px;
+}
+
+.veiculo-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #ffffff;
+}
+
+.veiculo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.veiculo-card img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+.veiculo-info {
+    padding: 15px;
+}
+
+.veiculo-info h3 {
+    font-size: 1.3rem;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.veiculo-info p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 4px;
+}
+
+
+.veiculo-info p:last-child {
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/Header.css">
     <link rel="icon" href="./assets/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/listagem-veiculos.css">
 </head>
+
 <body>
     <header>
         <div class="logoHeader">
@@ -28,5 +31,17 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <section class="listagem-header">
+            <h2>Veículos Cadastrados</h2>
+        </section>
+
+        <section id="lista-veiculos" class="vehicle-list-container">
+            <p>Carregando lista...</p>
+        </section>
+    </main>
+
+    <script type="module" src="./listagem-veiculos.js"></script>
 </body>
+
 </html>

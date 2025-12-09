@@ -27,7 +27,7 @@ export default class Veiculo {
         this.#descricao = descricao;
     }
 
-    set imagem(imagem) {    
+    set imagem(imagem) {
         this.#imagem = imagem;
     }
     get id() {
@@ -48,7 +48,7 @@ export default class Veiculo {
     get descricao() {
         return this.#descricao;
     }
-    toJSON(){
+    toJSON() {
         return {
             id: this.#id,
             marca: this.#marca,
@@ -58,7 +58,7 @@ export default class Veiculo {
             descricao: this.#descricao
         };
     }
-        static fromJSON(obj) {
+    static fromJSON(obj) {
         return new Veiculo(
             obj.marca,
             obj.modelo,
