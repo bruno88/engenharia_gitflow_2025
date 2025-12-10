@@ -1,4 +1,4 @@
-import ArmazenamentoVeiculo from "./models/veiculosArmazenamentoVeiculo.js";
+import ArmazenamentoVeiculo from "./models/veiculos/ArmazenamentoVeiculo.js";
 
 ArmazenamentoVeiculo.carregar();
 
