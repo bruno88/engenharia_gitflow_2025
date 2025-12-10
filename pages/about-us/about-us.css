@@ -107,14 +107,14 @@
             opacity: 0.9;
         }
 
-        h1 {
+        main h1 {
             color: var(--deep-red-2);
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             position: relative;
         }
 
-        h1::after {
+        main h1::after {
             content: '';
             display: block;
             width: 60px;
