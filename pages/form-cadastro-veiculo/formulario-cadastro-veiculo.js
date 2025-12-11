@@ -1,8 +1,6 @@
 import Veiculo from "../../models/veiculos/Veiculo.js";
 import ArmazenamentoVeiculo from "../../models/veiculos/ArmazenamentoVeiculo.js";
-
 ArmazenamentoVeiculo.carregar(); // carrega os dados de veiculo que estão em localstorage pro vetor static da classe
-
 document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
 
