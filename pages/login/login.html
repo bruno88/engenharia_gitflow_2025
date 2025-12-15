@@ -13,23 +13,18 @@
 </head>
 
 <body>
-    <header>
-        <div class="logoHeader">
-            <img src="../../assets/logo.png" alt="logo">
-            <h1 class="header-title"><a href="/" style="text-decoration: none; color: inherit;">Car Site</a></h1>
-        </div>
-        
-        <nav class="mainNav">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="../about-us/about-us.html">Sobre</a></li>
-                <li><a href="../servicos/servicos.html">Serviços</a></li>
-                <li><a href="/pages/contato/contato.html">Contato</a></li>
-                <li><a href="/pages/tecnologias/tecnologias.html">Tecnologia</a></li>
-                <li><a href="/pages/login/login.html">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+<div id="header-container"></div>
+
+    <script type="module">
+        import '/components/Header/header.js';
+
+        fetch('/components/Header/header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-container').innerHTML = html;
+                document.dispatchEvent(new Event('header:loaded'));
+            });
+    </script>
 
     <main>
         <div class="container-auth">
@@ -52,19 +47,38 @@
 
             <section class="auth-box register-section">
                 <h2>Criar nova conta</h2>
+
                 <form id="form-cadastro">
+                    <div class="input-group">
+                        <span class="switch-label">Tipo de Conta</span>
+
+                        <div class="switch">
+                            <input type="radio" id="cad-client" name="tipo-conta" value="cliente" checked>
+                            <input type="radio" id="cad-adm" name="tipo-conta" value="adm">
+
+                            <div class="switch-track">
+                                <label for="cad-client" class="switch-option">Cliente</label>
+                                <label for="cad-adm" class="switch-option">Administrador</label>
+                                <div class="switch-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="input-group">
                         <label for="cad-nome">Nome Completo</label>
                         <input type="text" id="cad-nome" required placeholder="Seu Nome">
                     </div>
+
                     <div class="input-group">
                         <label for="cad-email">E-mail</label>
                         <input type="email" id="cad-email" required placeholder="seu@email.com">
                     </div>
+
                     <div class="input-group">
                         <label for="cad-senha">Senha</label>
                         <input type="password" id="cad-senha" required placeholder="Crie uma senha">
                     </div>
+
                     <button type="submit" class="btn-secondary">Cadastrar</button>
                 </form>
             </section>
@@ -85,4 +99,5 @@
 
     <script type="module" src="login.js"></script>
 </body>
+
 </html>

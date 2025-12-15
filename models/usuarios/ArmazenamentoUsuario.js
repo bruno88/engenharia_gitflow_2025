@@ -32,9 +32,7 @@ export default class ArmazenamentoUsuario {
     static login(email, senha) {
         this.carregar();
         const usuarioEncontrado = this.usuarios.find(u => u.email === email && u.senha === senha);
-
         if (usuarioEncontrado) {
-            // Salva na SESSION storage (dura apenas enquanto o navegador estiver aberto)
             sessionStorage.setItem(this.chaveSessao, JSON.stringify(usuarioEncontrado));
             return true;
         }

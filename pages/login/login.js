@@ -3,29 +3,42 @@ import ArmazenamentoUsuario from "../../models/usuarios/ArmazenamentoUsuario.js"
 
 // Carregar dados existentes ao abrir a página
 ArmazenamentoUsuario.carregar();
-
+ localStorage.removeItem('usuarioLogado');
+        ArmazenamentoUsuario.logout();
 // --- Lógica de Cadastro ---
 const formCadastro = document.getElementById('form-cadastro');
 
 formCadastro.addEventListener('submit', (e) => {
     e.preventDefault();
 
+    const tipoContaInput = document.querySelector(
+        'input[name="tipo-conta"]:checked'
+    );
+
     const nome = document.getElementById('cad-nome').value;
     const email = document.getElementById('cad-email').value;
     const senha = document.getElementById('cad-senha').value;
 
     try {
-        const novoUsuario = new Usuario(nome, email, senha);
+        if (!tipoContaInput) {
+            throw new Error("Selecione um tipo de conta válido.");
+        }
+
+        const tipoConta = tipoContaInput.value; // adm ou cliente
+        const novoUsuario = new Usuario(nome, email, senha, tipoConta);
         ArmazenamentoUsuario.cadastrarUsuario(novoUsuario);
-        
-        alert("Cadastro realizado com sucesso! Faça login para continuar.");
+        if (tipoConta === "adm") {
+            alert("Cadastro de administrador realizado com sucesso! Faça login para continuar.");
+        } else {
+            alert("Cadastro de cliente realizado com sucesso! Faça login para continuar.");
+        }
         formCadastro.reset();
         document.getElementById('login-email').focus();
+
     } catch (error) {
         alert("Erro ao cadastrar: " + error.message);
     }
 });
-
 const formLogin = document.getElementById('form-login');
 
 formLogin.addEventListener('submit', (e) => {
@@ -38,6 +51,7 @@ formLogin.addEventListener('submit', (e) => {
     if (sucesso) {
         window.location.href = "/"; 
     } else {
-        alert("E-mail ou senha incorretos.");
+        alert("Falha no login: " + "E-mail ou senha incorretos.")
+        throw new Error("E-mail ou senha incorretos.");
     }
 });
