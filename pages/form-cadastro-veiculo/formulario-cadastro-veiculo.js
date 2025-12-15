@@ -1,8 +1,9 @@
 import Veiculo from "../../models/veiculos/Veiculo.js";
 import ArmazenamentoVeiculo from "../../models/veiculos/ArmazenamentoVeiculo.js";
+import ArmazenamentoUsuario from "../../models/usuarios/ArmazenamentoUsuario.js";
 ArmazenamentoVeiculo.carregar(); // carrega os dados de veiculo que estão em localstorage pro vetor static da classe
-let user = ArmazenamentoVeiculo.obterUsuarioLogado();
-if (!user) {
+let user = ArmazenamentoUsuario.obterUsuarioLogado();
+if (user.role != 'adm') {
     alert("Você precisa estar logado para cadastrar um veículo.");
     window.location.href = "/pages/login/login.html";
 }
