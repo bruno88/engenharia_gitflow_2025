@@ -3,8 +3,11 @@ import ArmazenamentoVeiculo from "./models/veiculos/ArmazenamentoVeiculo.js";
 ArmazenamentoVeiculo.carregar();
 const veiculos = ArmazenamentoVeiculo.listarVeiculos();
 const containerLista = document.getElementById('lista-veiculos');
-const botaoBuscarVeiculo = document.getElementById('buscar-veiculo');
-botaoBuscarVeiculo.addEventListener('click',buscarVeiculo);
+document.addEventListener('header:loaded', () => {
+    const botaoBuscarVeiculo = document.getElementById('buscar-veiculo');
+    if (!botaoBuscarVeiculo) return;
+
+    botaoBuscarVeiculo.addEventListener('click', buscarVeiculo);});
 
 //inicialização da variavel de busca ao carregar a página
 window.onload = function() {

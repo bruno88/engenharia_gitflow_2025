@@ -13,27 +13,18 @@
 </head>
 
 <body>
-  <header>
-    <div class="logoHeader">
-      <img src="../../assets/logo.png" alt="logo">
-      <h1>Car Site</h1>
-    </div>
-    <div class="searchBar">
-      <input type="text" id="termo-busca" placeholder="Pesquisar...">
-      <button type="submit" id="buscar-veiculo">Buscar</button>
-    </div>
-    <nav class="mainNav">
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="../about-us/about-us.html">Sobre</a></li>
-        <li><a href="../servicos/servicos.html">Serviços</a></li>
-        <li><a href="/pages/contato/contato.html">Contato</a></li>
-        <li><a href="/pages/tecnologias/tecnologias.html">Tecnologia</a></li>
-        <li><a href="../form-cadastro-veiculo/formulario-cadastro-veiculo.html">Cadastrar Veículo</a></li>
-        <li><a href="/pages/login/login.html">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+    <div id="header-container"></div>
+
+    <script type="module">
+        import '/components/Header/header.js';
+
+        fetch('/components/Header/header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-container').innerHTML = html;
+                document.dispatchEvent(new Event('header:loaded'));
+            });
+    </script>
 
   <main>
     <section class="hero">
