@@ -1,0 +1,101 @@
+.newsletter {
+    background: linear-gradient(135deg, #0b0b0b, #151515);
+    color: #fff;
+    padding: 60px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 1px solid #222;
+}
+
+/* Container centralizado */
+.newsletter__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: center; /* CENTRALIZA */
+}
+
+/* Box premium */
+.newsletter__box {
+    max-width: 420px;
+    width: 100%;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 14px;
+    border: 1px solid #222;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    text-align: center; /* centraliza texto e inputs */
+}
+
+/* Títulos */
+.newsletter__box h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.newsletter__box p {
+    font-size: 14px;
+    opacity: 0.85;
+    margin-bottom: 22px;
+}
+
+/* Formulário */
+.newsletter__form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.newsletter__form input {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #2a2a2a;
+    background: #0f0f0f;
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.newsletter__form input::placeholder {
+    color: #888;
+}
+
+.newsletter__form input:focus {
+    outline: none;
+    border-color: #c7a14a;
+    box-shadow: 0 0 0 1px rgba(199, 161, 74, 0.4);
+}
+
+/* Botão premium */
+.newsletter__form button {
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #c7a14a, #9e7c2f);
+    color: #111;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.newsletter__form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(199, 161, 74, 0.4);
+}
+
+/* Mensagem */
+.newsletter__msg {
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .newsletter__box {
+        padding: 25px;
+    }
+}
