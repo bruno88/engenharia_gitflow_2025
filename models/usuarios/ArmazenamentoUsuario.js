@@ -47,4 +47,14 @@ export default class ArmazenamentoUsuario {
     static logout() {
         sessionStorage.removeItem(this.chaveSessao);
     }
+
+    static atualizar(usuarioAtualizado) {
+        this.carregar();
+        const index = this.usuarios.findIndex(u => u.id === usuarioAtualizado.id);
+        if (index !== -1) {
+            this.usuarios[index] = usuarioAtualizado;
+            localStorage.setItem(this.chaveStorage, JSON.stringify(this.usuarios));
+            sessionStorage.setItem(this.chaveSessao, JSON.stringify(usuarioAtualizado));
+        }
+    }
 }

@@ -77,13 +77,13 @@ document.addEventListener('header:loaded', () => {
         menu.innerHTML = `
             ${linksBase}
             <li><a href="/pages/form-cadastro-veiculo/formulario-cadastro-veiculo.html">Cadastrar Veículo</a></li>
-            <li><a href="/pages/admin/dashboard.html">Admin</a></li>
+            <li><a href="/pages/pagina-perfil/pagina-perfil.html">Perfil</a></li>
             <li><a href="#" id="logout">Sair</a></li>
         `;
     } else if(usuarioLogado.role === 'cliente') {
         menu.innerHTML = `
             ${linksBase}
-            <li><a href="/pages/perfil/perfil.html">Perfil</a></li>
+            <li><a href="/pages/pagina-perfil/pagina-perfil.html">Perfil</a></li>
             <li><a href="#" id="logout">Sair</a></li>
         `;
     }
