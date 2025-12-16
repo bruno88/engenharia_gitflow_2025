@@ -69,6 +69,7 @@ function criarCardVeiculo(veiculo) {
     card.classList.add("veiculo-card");
 
     card.innerHTML = `
+        <a href="/pages/detalhes-veiculo/detalhes-veiculo.html?id=${veiculo.id}" style="text-decoration: none; color: inherit;">
         <img src="${veiculo.imagem || "/assets/logo.png"}" 
              alt="Imagem do veículo" 
              class="veiculo-imagem">
@@ -77,6 +78,8 @@ function criarCardVeiculo(veiculo) {
             <p>Ano: ${veiculo.ano}</p>
             <p>Descrição: ${veiculo.descricao}</p>
         </div>
+        <input type="hidden" value="${veiculo.id}">
+        </a>
     `;
     return card;
 }

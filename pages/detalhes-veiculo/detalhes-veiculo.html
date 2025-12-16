@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Veículo</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="detalhes-veiculo.css">
+</head>
+<body>
+ <div id="header-container"></div>
+
+    <script type="module">
+        import '/components/Header/header.js';
+
+        fetch('/components/Header/header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-container').innerHTML = html;
+                document.dispatchEvent(new Event('header:loaded'));
+            });
+    </script>
+    <main>
+        <section class="detalhes">
+        <div id="detalhes-veiculo">
+        </div>
+    </section>
+    </main>
+     <footer class="footer">
+    <div class="footer__container">
+
+        <div class="footer__logo">
+            <img src="../../assets/logo.png" alt="logo">
+            <h2>Car Site</h2>
+        </div>
+
+        <div class="footer__links">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="../about-us/about-us.html">Sobre</a></li>
+                <li><a href="/servicos">Serviços</a></li>
+                <li><a href="/pages/contato/contato.html">Contato</a></li>
+                <li><a href="/pages/tecnologias/tecnologias.html">Tecnologia</a></li>
+                <li><a href="../form-cadastro-veiculo/formulario-cadastro-veiculo.html">Cadastrar Veículo</a></li>
+            </ul>
+        </div>
+
+        <div class="footer__info">
+            <p>© 2025 Car Site. Todos os direitos reservados.</p>
+        </div>
+
+    </div>
+</footer>
+    
+    <script type="module" src="./detalhes-veiculo.js"></script>
+</body>
+</html>

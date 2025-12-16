@@ -67,4 +67,9 @@ export default class ArmazenamentoVeiculo {
 
         return resultado;
     }
+    
+    static atualizarVeiculo(veiculoAtualizado) {
+        this.veiculos = this.veiculos.map(v => v.id === veiculoAtualizado.id ? veiculoAtualizado : v);
+        localStorage.setItem('veiculos', JSON.stringify(this.veiculos));
+    }
 }
