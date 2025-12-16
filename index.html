@@ -9,6 +9,7 @@
     <title>Car site</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="./css/avaliacao.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="icon" href="./assets/logo.ico" type="image/x-icon">
     <link rel="stylesheet" href="./css/listagem-veiculos.css">
@@ -60,6 +61,31 @@
             <p style="text-align: center; color: #666;">Carregando lista...</p>
         </section>
     </main>
+
+    <section class="avaliacao">
+    <h2>Avalie a Car Site</h2>
+
+    <form id="form-avaliacao">
+      <label for="nota">Nota da experiência</label>
+      <select id="nota" required>
+        <option value="">Selecione</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+
+      <label for="comentario">Comentário</label>
+      <textarea
+        id="comentario"
+        placeholder="Conte como foi sua experiência com a Car Site..."
+        required
+      ></textarea>
+
+      <button type="submit">Enviar Avaliação</button>
+    </form>
+  </section>
         <footer class="footer">
     <div class="footer__container">
 
