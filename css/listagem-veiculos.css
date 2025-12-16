@@ -167,3 +167,18 @@ main {
     color: #666;
     font-size: 0.95rem;
 }
+
+.listagem-filtro {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.select-filtro {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}

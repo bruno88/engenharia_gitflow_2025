@@ -58,6 +58,26 @@
             <h2>Veículos Cadastrados</h2>
         </section>
 
+        <section class="listagem-filtro">
+            <div class="filtro"> 
+                <label for="filtro-ano">Filtrar por Ano:</label> 
+                <select id="filtro-ano" class="select-filtro">
+                    <option value="" selected disabled>Selecione o filtro</option>
+                    <option value="crescente">Crescente</option>
+                    <option value="decrescente">Decrescente</option>
+                </select> 
+            </div>
+            <div class="filtro"> 
+                <label for="filtro-nome">Filtrar por Ordem Alfabética:</label> 
+                <select id="filtro-nome" class="select-filtro">
+                    <option value="" selected disabled>Selecione o filtro</option>
+                    <option value="crescente">Crescente</option>
+                    <option value="decrescente">Decrescente</option>
+                </select> 
+            </div> 
+            <button id="btFiltro" class="btFiltro">Filtrar</button>
+        </section>
+
         <section id="lista-veiculos" class="vehicle-list-container">
             <p style="text-align: center; color: #666;">Carregando lista...</p>
         </section>
