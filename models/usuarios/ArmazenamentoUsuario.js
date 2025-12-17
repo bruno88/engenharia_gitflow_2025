@@ -48,6 +48,19 @@ export default class ArmazenamentoUsuario {
         sessionStorage.removeItem(this.chaveSessao);
     }
 
+    static atualizarUsuario(usuarioAtualizado) {
+  const usuarios = this.listarUsuarios();
+
+  const index = usuarios.findIndex(
+    u => u.email === usuarioAtualizado.email
+  );
+
+  if (index !== -1) {
+    usuarios[index] = usuarioAtualizado;
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+  }
+}
+
     static atualizar(usuarioAtualizado) {
         this.carregar();
         const index = this.usuarios.findIndex(u => u.id === usuarioAtualizado.id);
@@ -55,6 +68,9 @@ export default class ArmazenamentoUsuario {
             this.usuarios[index] = usuarioAtualizado;
             localStorage.setItem(this.chaveStorage, JSON.stringify(this.usuarios));
             sessionStorage.setItem(this.chaveSessao, JSON.stringify(usuarioAtualizado));
+
+            
         }
     }
 }
+
