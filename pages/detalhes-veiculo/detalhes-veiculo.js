@@ -1,34 +1,39 @@
 import ArmazenamentoUsuario from "../../models/usuarios/ArmazenamentoUsuario.js";
 import ArmazenamentoVeiculo from "../../models/veiculos/ArmazenamentoVeiculo.js";
 
+ArmazenamentoUsuario.carregar();
+ArmazenamentoVeiculo.carregar();
 
 const btnFavorito = document.getElementById("btn-favorito");
-
-const usuarioLogado = ArmazenamentoUsuario.getUsuarioLogado();
 const idVeiculo = new URLSearchParams(window.location.search).get("id");
 
-if (usuarioLogado.isFavorito(idVeiculo)) {
-  btnFavorito.textContent = "❌ Remover dos favoritos";
-}
-
-btnFavorito.addEventListener("click", () => {
-  if (usuarioLogado.isFavorito(idVeiculo)) {
-    usuarioLogado.removerFavorito(idVeiculo);
-    btnFavorito.textContent = "⭐ Favoritar";
-  } else {
-    usuarioLogado.adicionarFavorito(idVeiculo);
+// Protege a página: precisa estar logado
+const usuarioLogado = ArmazenamentoUsuario.getUsuarioLogado();
+if (!usuarioLogado) {
+  alert("Você precisa estar logado para acessar esta página.");
+  window.location.href = "/pages/login/login.html";
+} else {
+  // Estado inicial do botão
+  if (btnFavorito && usuarioLogado.isFavorito(idVeiculo)) {
     btnFavorito.textContent = "❌ Remover dos favoritos";
   }
 
-  ArmazenamentoUsuario.atualizarUsuario(usuarioLogado);
-});
+  // Toggle favorito
+  if (btnFavorito) {
+    btnFavorito.addEventListener("click", () => {
+      if (usuarioLogado.isFavorito(idVeiculo)) {
+        usuarioLogado.removerFavorito(idVeiculo);
+        btnFavorito.textContent = "⭐ Adicionar aos favoritos";
+      } else {
+        usuarioLogado.adicionarFavorito(idVeiculo);
+        btnFavorito.textContent = "❌ Remover dos favoritos";
+      }
 
-ArmazenamentoVeiculo.carregar();
-const user = ArmazenamentoUsuario.obterUsuarioLogado();
-if(!user){
-    alert("Você precisa estar logado para acessar esta página.");
-    window.location.href = "/pages/login/login.html";
+      ArmazenamentoUsuario.atualizarUsuario(usuarioLogado);
+    });
+  }
 }
+
 const urlParams = new URLSearchParams(window.location.search);
 const veiculoId = urlParams.get("id");
 const detalhes = document.getElementById("detalhes-veiculo");
