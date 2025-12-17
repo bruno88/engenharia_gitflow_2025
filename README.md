@@ -55,7 +55,7 @@ A versão 1.0.0 foi disponibilizada via Vercel.
 
 ---
 
-🛠️ Tecnologias Utilizadas
+### 🛠️ Tecnologias Utilizadas
 
 HTML5
 CSS3
@@ -65,7 +65,7 @@ Visual Studio Code
 Trello (gestão do backlog e acompanhamento da sprint)
 Vercel (deploy)
 
-📄 Licença
+### 📄 Licença
 
 Este projeto é desenvolvido para fins educacionais, com livre uso para aprendizado, estudo e demonstração de práticas de desenvolvimento colaborativo, tendo o professor Bruno optado pela distribuição do projeto usando a licença GNU GENERAL PUBLIC LICENSE v3.0
 
