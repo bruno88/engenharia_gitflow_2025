@@ -13,9 +13,9 @@
 <div id="header-container"></div>
 
     <script type="module">
-        import '/components/Header/header.js';
+        import '/components/header/header.js';
 
-        fetch('/components/Header/header.html')
+        fetch('/components/header/header.html')
             .then(res => res.text())
             .then(html => {
                 document.getElementById('header-container').innerHTML = html;
