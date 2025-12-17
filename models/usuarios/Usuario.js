@@ -51,3 +51,26 @@ export default class Usuario {
         );
     }
 }
+
+export class Usuario {
+  constructor(nome, email, senha) {
+    this.nome = nome;
+    this.email = email;
+    this.senha = senha;
+    this.favoritos = []; // ✅ US14
+  }
+
+  adicionarFavorito(idVeiculo) {
+    if (!this.favoritos.includes(idVeiculo)) {
+      this.favoritos.push(idVeiculo);
+    }
+  }
+
+  removerFavorito(idVeiculo) {
+    this.favoritos = this.favoritos.filter(id => id !== idVeiculo);
+  }
+
+  isFavorito(idVeiculo) {
+    return this.favoritos.includes(idVeiculo);
+  }
+}

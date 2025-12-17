@@ -2,6 +2,27 @@ import ArmazenamentoUsuario from "../../models/usuarios/ArmazenamentoUsuario.js"
 import ArmazenamentoVeiculo from "../../models/veiculos/ArmazenamentoVeiculo.js";
 
 
+const btnFavorito = document.getElementById("btn-favorito");
+
+const usuarioLogado = ArmazenamentoUsuario.getUsuarioLogado();
+const idVeiculo = new URLSearchParams(window.location.search).get("id");
+
+if (usuarioLogado.isFavorito(idVeiculo)) {
+  btnFavorito.textContent = "❌ Remover dos favoritos";
+}
+
+btnFavorito.addEventListener("click", () => {
+  if (usuarioLogado.isFavorito(idVeiculo)) {
+    usuarioLogado.removerFavorito(idVeiculo);
+    btnFavorito.textContent = "⭐ Favoritar";
+  } else {
+    usuarioLogado.adicionarFavorito(idVeiculo);
+    btnFavorito.textContent = "❌ Remover dos favoritos";
+  }
+
+  ArmazenamentoUsuario.atualizarUsuario(usuarioLogado);
+});
+
 ArmazenamentoVeiculo.carregar();
 const user = ArmazenamentoUsuario.obterUsuarioLogado();
 if(!user){

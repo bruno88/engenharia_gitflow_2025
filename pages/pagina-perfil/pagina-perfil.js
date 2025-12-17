@@ -49,3 +49,21 @@ function salvarDadosPerfil(event) {
   alert("Dados do perfil salvos com sucesso! Relogue para continuar.");
   window.location.href = "/pages/login/login.html";
 }
+
+const usuario = ArmazenamentoUsuario.getUsuarioLogado();
+const veiculos = ArmazenamentoVeiculo.listar();
+
+const container = document.getElementById("favoritos");
+
+usuario.favoritos.forEach(id => {
+  const veiculo = veiculos.find(v => v.id == id);
+
+  if (veiculo) {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <h4>${veiculo.modelo}</h4>
+      <p>${veiculo.marca}</p>
+    `;
+    container.appendChild(div);
+  }
+});
