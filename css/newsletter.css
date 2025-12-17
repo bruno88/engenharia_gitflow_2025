@@ -1,0 +1,59 @@
+/* =========================
+   NEWSLETTER (PADRÃO AVALIAÇÕES)
+========================= */
+
+.newsletter {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Título */
+.newsletter h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Texto */
+.newsletter p {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Formulário */
+.newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Input */
+.newsletter input {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Botão */
+.newsletter button {
+  padding: 12px;
+  background: #00adee;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Hover botão */
+.newsletter button:hover {
+  opacity: 0.9;
+}
+
+/* Mensagem */
+.newsletter__msg {
+  text-align: center;
+  margin-top: 15px;
+}
+

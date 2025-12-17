@@ -2,37 +2,103 @@ import ArmazenamentoVeiculo from "./models/veiculos/ArmazenamentoVeiculo.js";
 
 ArmazenamentoVeiculo.carregar();
 
-const containerLista = document.getElementById('lista-veiculos');
+const veiculos = ArmazenamentoVeiculo.listarVeiculos();
+const containerLista = document.getElementById("lista-veiculos");
+
+document.addEventListener("header:loaded", () => {
+    const botaoBuscarVeiculo = document.getElementById("buscar-veiculo");
+    if (!botaoBuscarVeiculo) return;
+
+    botaoBuscarVeiculo.addEventListener("click", buscarVeiculo);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const termo = localStorage.getItem("buscaVeiculo");
+    if (termo) {
+        executarBusca(termo);
+        localStorage.removeItem("buscaVeiculo");
+    }
+
+    const btFiltro = document.getElementById("btFiltro");
+    btFiltro.addEventListener("click", aplicarFiltros);
+});
+
+function aplicarFiltros() {
+    const filtroAno = document.getElementById("filtro-ano").value;
+    const filtroNome = document.getElementById("filtro-nome").value;
+
+    const veiculosBase = ArmazenamentoVeiculo.listarVeiculos();
+
+    const veiculosFiltrados = ArmazenamentoVeiculo.filtrarVeiculos(
+        veiculosBase,
+        filtroAno,
+        filtroNome
+    );
+
+    exibirVeiculos(veiculosFiltrados);
+}
+
+function buscarVeiculo(event) {
+    event.preventDefault();
+
+    const termoBusca = document
+        .getElementById("termo-busca")
+        .value.toLowerCase();
+
+    localStorage.setItem("buscaVeiculo", termoBusca);
+
+    if (window.location.pathname !== "/") {
+        window.location.href = "/";
+        return;
+    }
+
+    executarBusca(termoBusca);
+}
+
+function executarBusca(termoBusca) {
+    const veiculosFiltrados = veiculos.filter(veiculo =>
+        veiculo.marca.toLowerCase().includes(termoBusca) ||
+        veiculo.modelo.toLowerCase().includes(termoBusca)
+    );
+
+    exibirVeiculos(veiculosFiltrados);
+}
 
 function criarCardVeiculo(veiculo) {
-    const card = document.createElement('div');
-    card.classList.add('veiculo-card');
+    const card = document.createElement("div");
+    card.classList.add("veiculo-card");
 
     card.innerHTML = `
-        <img src="${veiculo.imagem || '/assets/logo.png'}" alt="Imagem do veículo" class="veiculo-imagem">
+        <a href="/pages/detalhes-veiculo/detalhes-veiculo.html?id=${veiculo.id}" style="text-decoration: none; color: inherit;">
+        <img src="${veiculo.imagem || "/assets/logo.png"}" 
+             alt="Imagem do veículo" 
+             class="veiculo-imagem">
         <div class="veiculo-info">
             <h3>${veiculo.marca} ${veiculo.modelo}</h3>
             <p>Ano: ${veiculo.ano}</p>
             <p>Descrição: ${veiculo.descricao}</p>
         </div>
+        <input type="hidden" value="${veiculo.id}">
+        </a>
     `;
     return card;
 }
 
-function exibirVeiculos() {
-    const veiculos = ArmazenamentoVeiculo.listarVeiculos();
+function exibirVeiculos(lista) {
+    if (!containerLista) return;
 
-    containerLista.innerHTML = '';
+    containerLista.innerHTML = "";
 
-    if (veiculos.length === 0) {
-        containerLista.innerHTML = '<p class="mensagem-vazia">Nenhum veículo cadastrado.</p>';
+    if (!lista || lista.length === 0) {
+        containerLista.innerHTML =
+            '<p class="mensagem-vazia">Nenhum veículo encontrado.</p>';
         return;
     }
 
-    veiculos.forEach(veiculo => {
+    lista.forEach(veiculo => {
         const card = criarCardVeiculo(veiculo);
         containerLista.appendChild(card);
     });
 }
 
-exibirVeiculos();
+exibirVeiculos(veiculos);

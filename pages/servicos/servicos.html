@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Car Site</title>
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
+    <link rel="stylesheet" href="./servicos.css">
+</head>
+
+<body>
+       <div id="header-container"></div>
+
+    <script type="module">
+        import '/components/header/header.js';
+
+        fetch('/components/header/header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-container').innerHTML = html;
+                document.dispatchEvent(new Event('header:loaded'));
+            });
+    </script>
+    <main>
+        <section class="services-header">
+            <h2>Conheça Nossos Serviços</h2>
+        </section>
+
+        <section id="lista-servicos" class="services-container">
+
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <img src="../../assets/manutencao.png" alt="Ícone de Manutenção">
+                </div>
+                <div class="service-info">
+                    <h3>Manutenção Preventiva e Revisões</h3>
+                    <p>Garantimos a segurança e longevidade do seu veículo com planos de manutenção detalhados, usando
+                        peças originais e tecnologia de ponta.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <img src="../../assets/financiamento.png" alt="Ícone de Financiamento">
+                </div>
+                <div class="service-info">
+                    <h3>Financiamento e Crédito Facilitado</h3>
+                    <p>Soluções de crédito personalizadas e as melhores taxas do mercado. Transforme seu sonho em
+                        realidade com aprovação rápida e sem burocracia.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <img src="../../assets/pintura.png" alt="Ícone de Pintura">
+                </div>
+                <div class="service-info">
+                    <h3>Funilaria, Pintura e Reparos Rápidos</h3>
+                    <p>Serviços de funilaria com excelência e pintura automotiva com cabine moderna, garantindo a cor
+                        original e acabamento impecável.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <img src="../../assets/limpeza.png" alt="Ícone de Limpeza">
+                </div>
+                <div class="service-info">
+                    <h3>Estética Automotiva e Detalhamento</h3>
+                    <p>Polimento técnico, cristalização, higienização interna e proteção de pintura. Seu veículo com
+                        brilho de novo e proteção duradoura.</p>
+                </div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <img src="../../assets/vendas.png" alt="Ícone de Vendas">
+                </div>
+                <div class="service-info">
+                    <h3>Consignação e Venda de Usados</h3>
+                    <p>Venda seu carro com segurança e agilidade. Deixe seu veículo em consignação e tenha a certeza do
+                        melhor negócio, com transparência e sem dor de cabeça.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon-box">
+                    <img src="../../assets/seguro.png" alt="Ícone de Seguro">
+                </div>
+                <div class="service-info">
+                    <h3>Seguros e Proteção Completa</h3>
+                    <p>As melhores cotações de seguro automotivo do mercado. Proteja seu investimento contra roubo,
+                        furto, colisão e danos a terceiros com nossa corretora parceira.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+    <footer class="footer">
+        <div class="footer__container">
+
+            <div class="footer__logo">
+                <img src="../../assets/logo.png" alt="logo">
+                <h2>Car Site</h2>
+            </div>
+
+            <div class="footer__links">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../about-us/about-us.html">Sobre</a></li>
+                    <li><a href="/servicos">Serviços</a></li>
+                    <li><a href="/pages/contato/contato.html">Contato</a></li>
+                    <li><a href="/pages/tecnologias/tecnologias.html">Tecnologia</a></li>
+                    <li><a href="../form-cadastro-veiculo/formulario-cadastro-veiculo.html">Cadastrar Veículo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__info">
+                <p>© 2025 Car Site. Todos os direitos reservados.</p>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

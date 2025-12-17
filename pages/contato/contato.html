@@ -6,31 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
     <link rel="stylesheet" href="../../css/reset.css">
-    <link rel="stylesheet" href="../../css/Header.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/footer.css">
     <link rel="stylesheet" href="./contato.css">
 </head>
 
 <body>
-    <header>
-        <div class="logoHeader">
-            <img src="../../assets/logo.ico" alt="logo">
-            <h1>Car Site</h1>
-        </div>
-        <div class="searchBar">
-            <input type="text" placeholder="Pesquisar...">
-            <button type="submit">Buscar</button>
-        </div>
-        <nav class="mainNav">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="../about-us/about-us.html">Sobre</a></li>
-                <li><a href="/servicos">Serviços</a></li>
-                <li><a href="/pages/contato/contato.html">Contato</a></li>
-                <li><a href="/pages/tecnologias/tecnologias.html">Tecnologia</a></li>
-                <li><a href='../form-cadastro-veiculo/formulario-cadastro-veiculo.html'>Cadastrar Veículo</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-container"></div>
+
+    <script type="module">
+        import '/components/header/header.js';
+
+        fetch('/components/header/header.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('header-container').innerHTML = html;
+                document.dispatchEvent(new Event('header:loaded'));
+            });
+    </script>
     <main>
         <div class="form-div">
             <h2>Fale Conosco</h2>
@@ -48,27 +41,32 @@
             </form>
         </div>
     </main>
-    <footer>
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src="./assets/logo.png" alt="logo">
-            <h2>Car Site</h2>
-        </div>
+    <footer class="footer">
+        <div class="footer__container">
 
-        <div class="footer-links">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="./pages/about-us/about-us.html">Sobre</a></li>
-                <li><a href="/servicos">Serviços</a></li>
-                <li><a href="/contato">Contato</a></li>
-            </ul>
-        </div>
+            <div class="footer__logo">
+                <img src="../../assets/logo.png" alt="logo">
+                <h2>Car Site</h2>
+            </div>
 
-        <div class="footer-info">
-            <p>© 2025 Car Site. Todos os direitos reservados.</p>
+            <div class="footer__links">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../about-us/about-us.html">Sobre</a></li>
+                    <li><a href="/servicos">Serviços</a></li>
+                    <li><a href="/pages/contato/contato.html">Contato</a></li>
+                    <li><a href="/pages/tecnologias/tecnologias.html">Tecnologia</a></li>
+                    <li><a href="../form-cadastro-veiculo/formulario-cadastro-veiculo.html">Cadastrar Veículo</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__info">
+                <p>© 2025 Car Site. Todos os direitos reservados.</p>
+            </div>
+
         </div>
-    </div>
-</footer>
+    </footer>
+    <script type="module" src="../../listagem-veiculos.js"></script>
 </body>
 
 </html>

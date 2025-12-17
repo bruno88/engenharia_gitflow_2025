@@ -1,0 +1,161 @@
+main {
+    background-color: #f7f7f7;
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.container-auth {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    border: 1px solid #eee;
+}
+
+.auth-box {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.divider {
+    width: 1px;
+    background-color: #eee;
+    margin: 20px 0;
+}
+
+h2 {
+    color: #cc0000;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fcfcfc;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #cc0000;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #990000;
+}
+
+.btn-secondary {
+    background-color: #333;
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #000;
+}
+
+@media (max-width: 768px) {
+    .container-auth {
+        flex-direction: column;
+    }
+    .divider {
+        height: 1px;
+        width: 100%;
+    }
+}
+.switch-label {
+    display: flex;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+.switch {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+}
+
+.switch input {
+    display: none;
+}
+
+.switch-track {
+    position: relative;
+    display: flex;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.switch-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    color: #555;
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+.switch-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 49%;
+    height: calc(100% - 6px);
+    background: #cc0000;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* Quando ADM estiver selecionado */
+#cad-adm:checked ~ .switch-track .switch-thumb {
+    transform: translateX(100%);
+}
+
+/* Texto ativo */
+#cad-client:checked ~ .switch-track label[for="cad-client"],
+#cad-adm:checked ~ .switch-track label[for="cad-adm"] {
+    color: #fff;
+}
+
+/* Texto inativo */
+#cad-client:checked ~ .switch-track label[for="cad-adm"],
+#cad-adm:checked ~ .switch-track label[for="cad-client"] {
+    color: #555;
+}

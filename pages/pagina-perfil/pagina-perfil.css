@@ -1,0 +1,132 @@
+/* Escopo TOTAL da página de perfil */
+.perfil-page {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+/* Textos */
+.perfil-page h1 {
+  margin-bottom: 8px;
+}
+
+.perfil-page h2 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
+.perfil-page p {
+  margin-bottom: 24px;
+  color: #555;
+}
+
+/* Card */
+.perfil-card {
+  background-color: #ffffff;
+  padding: 20px;
+  max-width: 480px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Formulário */
+.perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Inputs */
+.perfil-form input {
+  width: 100%;
+  padding: 10px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.perfil-form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+/* Botão */
+.perfil-form button {
+  padding: 10px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4f46e5;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.perfil-form button:hover {
+  background-color: #4338ca;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  .perfil-card {
+    padding: 16px;
+  }
+}
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header e footer mantêm tamanho natural */
+header,
+footer {
+  flex-shrink: 0;
+}
+
+/* Main ocupa o espaço restante */
+.main-content {
+  flex: 1;
+}
+/* Select estilizado */
+.select-conta {
+  width: 100%;
+  padding: 10px 40px 10px 12px;
+  font-size: 0.95rem;
+  color: #333;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+
+  cursor: pointer;
+
+  /* Remove estilo padrão */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Seta custom */
+  background-image: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'>\
+<polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+/* Hover */
+.select-conta:hover {
+  border-color: #4f46e5;
+}
+
+/* Focus */
+.select-conta:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.15);
+}
+
+/* Option (limitado por browser) */
+.select-conta option {
+  color: #333;
+}
