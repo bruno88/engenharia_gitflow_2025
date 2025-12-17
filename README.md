@@ -52,3 +52,20 @@ O projeto utiliza **Git Flow** como estratégia oficial de ramificação.
 
 Em adição, utilizou-se branches de feature, refactor, bugfix para o desenvolvimento do site e o recurso de release, gerando inicialmente a versão 0.1.0 (na conclusão da primeira sprint) e 1.0.0 (na conclusão da segunda sprint e encerramento da disciplina).
 A versão 1.0.0 foi disponibilizada via Vercel.
+
+---
+
+🛠️ Tecnologias Utilizadas
+
+HTML5
+CSS3
+JavaScript
+Git & GitHub
+Visual Studio Code
+Trello (gestão do backlog e acompanhamento da sprint)
+Vercel (deploy)
+
+📄 Licença
+
+Este projeto é desenvolvido para fins educacionais, com livre uso para aprendizado, estudo e demonstração de práticas de desenvolvimento colaborativo, tendo o professor Bruno optado pela distribuição do projeto usando a licença GNU GENERAL PUBLIC LICENSE v3.0
+
