@@ -66,4 +66,4 @@ usuario.favoritos.forEach(id => {
     `;
     container.appendChild(div);
   }
-});
+})
