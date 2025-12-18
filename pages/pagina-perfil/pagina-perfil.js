@@ -1,5 +1,8 @@
 import ArmazenamentoUsuario from "../../models/usuarios/ArmazenamentoUsuario.js";
+import ArmazenamentoVeiculo from "../../models/veiculos/ArmazenamentoVeiculo.js";
+
 ArmazenamentoUsuario.carregar(); // carrega os dados de veiculo que estão em localstorage pro vetor static da classe
+ArmazenamentoVeiculo.carregar();
 let user = ArmazenamentoUsuario.obterUsuarioLogado();
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -51,7 +54,7 @@ function salvarDadosPerfil(event) {
 }
 
 const usuario = ArmazenamentoUsuario.getUsuarioLogado();
-const veiculos = ArmazenamentoVeiculo.listar();
+const veiculos = ArmazenamentoVeiculo.listarVeiculos();
 
 const container = document.getElementById("favoritos");
 
