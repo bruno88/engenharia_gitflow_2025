@@ -22,7 +22,7 @@ if (!usuario) {
 }
 
 const lista = document.getElementById("favoritos-lista");
-const veiculos = ArmazenamentoVeiculo.listarVeiculos();
+const veiculos = ArmazenamentoVeiculo.listarVeiculos(); // Ajustado bug no carregamento dos Veículos salvos
 
 const favoritos = (usuario.favoritos || [])
   .map(id => veiculos.find(v => v.id === id))
