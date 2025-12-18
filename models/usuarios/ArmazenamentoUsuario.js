@@ -50,14 +50,13 @@ export default class ArmazenamentoUsuario {
   }
 
   static obterUsuarioLogado() {
-    const dados = sessionStorage.getItem(this.chaveSessao);
-    if (!dados) return null;
-    try {
-      return Usuario.fromJSON(JSON.parse(dados));
-    } catch {
-      return null;
-    }
-  }
+  const dados = sessionStorage.getItem(this.chaveSessao);
+  if (!dados) return null;
+
+  const obj = JSON.parse(dados);
+  return Usuario.fromJSON(obj); 
+}
+
 
   // Compatibilidade com páginas que usam getUsuarioLogado()
   static getUsuarioLogado() {

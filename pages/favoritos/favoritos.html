@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meus Favoritos</title>
+
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/footer.css" />
+  <link rel="stylesheet" href="/css/listagem-veiculos.css" />
+</head>
+
+<body>
+  <div id="header-container"></div>
+  <script type="module">
+    import '/components/header/header.js';
+    fetch('/components/header/header.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('header-container').innerHTML = html;
+        document.dispatchEvent(new Event('header:loaded'));
+      });
+  </script>
+
+  <main style="padding: 30px 20px;">
+    <h2 style="text-align:center; margin-bottom: 18px;">Meus Favoritos</h2>
+
+    <div id="favoritos-lista" class="vehicle-list-container"></div>
+
+    <div style="text-align:center; margin-top: 18px;">
+      <a class="btn-favoritos-link" href="/">Voltar para Home</a>
+    </div>
+  </main>
+
+  <script type="module" src="./favoritos.js"></script>
+</body>
+</html>

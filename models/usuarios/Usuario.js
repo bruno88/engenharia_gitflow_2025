@@ -12,63 +12,27 @@ export default class Usuario {
     this.#email = email;
     this.#senha = senha;
     this.#role = role;
-    this.#favoritos = Array.isArray(favoritos) ? [...favoritos] : [];
+    this.#favoritos = Array.isArray(favoritos) ? favoritos : [];
   }
 
-  get role() {
-    return this.#role;
-  }
-  set role(novaRole) {
-    this.#role = novaRole;
-  }
+  get id() { return this.#id; }
+  get role() { return this.#role; }
+  get nome() { return this.#nome; }
+  get email() { return this.#email; }
+  get senha() { return this.#senha; }
 
-  get id() {
-    return this.#id;
-  }
-
-  get nome() {
-    return this.#nome;
-  }
-  set nome(novoNome) {
-    this.#nome = novoNome;
-  }
-
-  get email() {
-    return this.#email;
-  }
-  set email(novoEmail) {
-    this.#email = novoEmail;
-  }
-
-  get senha() {
-    return this.#senha;
-  }
-  set senha(novaSenha) {
-    this.#senha = novaSenha;
-  }
-
-  get favoritos() {
-    return [...this.#favoritos];
-  }
-  set favoritos(lista) {
-    this.#favoritos = Array.isArray(lista) ? [...lista] : [];
-  }
+  get favoritos() { return this.#favoritos; }
 
   adicionarFavorito(idVeiculo) {
-    const id = String(idVeiculo);
-    if (!this.#favoritos.includes(id)) {
-      this.#favoritos.push(id);
-    }
+    if (!this.#favoritos.includes(idVeiculo)) this.#favoritos.push(idVeiculo);
   }
 
   removerFavorito(idVeiculo) {
-    const id = String(idVeiculo);
-    this.#favoritos = this.#favoritos.filter((v) => v !== id);
+    this.#favoritos = this.#favoritos.filter(id => id !== idVeiculo);
   }
 
   isFavorito(idVeiculo) {
-    const id = String(idVeiculo);
-    return this.#favoritos.includes(id);
+    return this.#favoritos.includes(idVeiculo);
   }
 
   toJSON() {
@@ -78,19 +42,18 @@ export default class Usuario {
       nome: this.#nome,
       email: this.#email,
       senha: this.#senha,
-      favoritos: [...this.#favoritos],
+      favoritos: this.#favoritos
     };
   }
 
   static fromJSON(obj) {
-    if (!obj) return null;
     return new Usuario(
       obj.nome,
       obj.email,
       obj.senha,
-      obj.role ?? 'cliente',
-      obj.id ?? null,
-      obj.favoritos ?? []
+      obj.role,
+      obj.id,
+      obj.favoritos || []
     );
   }
 }
